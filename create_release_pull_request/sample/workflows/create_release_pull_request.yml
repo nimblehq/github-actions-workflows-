@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  create_release_pr:
+  create_release_pull_request:
     name: Create the Release pull request
     runs-on: ubuntu-latest
     permissions:
@@ -21,7 +21,7 @@ jobs:
           path: "version.properties"
           properties: "version"
 
-      - uses: nimblehq/github-actions-workflows/create_release_pr@0.1.10
+      - uses: nimblehq/github-actions-workflows/create_release_pull_request@0.1.10
         with:
           version: ${{ steps.version.outputs.version }}
           changelogConfiguration: ".github/workflows/config/changelog-release.json"
