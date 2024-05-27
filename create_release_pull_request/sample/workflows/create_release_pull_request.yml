@@ -23,6 +23,6 @@ jobs:
 
       - uses: nimblehq/github-actions-workflows/create_release_pull_request@0.1.10
         with:
-          version: ${{ steps.version.outputs.version }}
-          changelogConfiguration: ".github/workflows/config/changelog-release.json"
+          release_version: ${{ steps.version.outputs.version }}
+          changelog_configuration: ".github/workflows/config/changelog-release.json"
           assignee: bot-nimble
