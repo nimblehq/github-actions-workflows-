@@ -84,6 +84,13 @@ runs:
         git checkout -b $RELEASE_BRANCH
         git push origin $RELEASE_BRANCH -f
 
+        # Add milestone if available
+        if [ -n "${{ steps.find_milestone.outputs.milestone_url }}" ]; then
+          MILESTONE_PARAM="--milestone ${{ steps.find_milestone.outputs.milestone }}"
+        else
+          MILESTONE_PARAM=""
+        fi
+
         # Create the pull request
         gh pr create \
           --base ${{ inputs.base_branch }} \
@@ -91,5 +98,5 @@ runs:
           --assignee ${{ inputs.assignee }} \
           --title "Release - ${{ inputs.release_version }}" \
           --label "${{ inputs.label }}" \
-          --milestone "${{ steps.find_milestone.outputs.milestone }}" \
+          $MILESTONE_PARAM \
           --body-file body_content.txt \
