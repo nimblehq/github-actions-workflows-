@@ -10,6 +10,8 @@
 ## Usage
 Follow the [instruction](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#calling-a-reusable-workflow) from Github to use any workflows in this repository.
 
+- [Automate creating the Release pull request](create_release_pull_request/README.md)
+
 ## How to contribute
 - Refer to the [official guide](https://docs.github.com/en/actions/learn-github-actions/reusing-workflows#creating-a-reusable-workflow) to learn how to define a reusable workflow
 - Put the new workflow under `./github/workflows` directory
